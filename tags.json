@@ -1,4 +1,4 @@
- GET [https://thatkidsampson.github.io/tags.json]
+ GET [https://thatkidsampson.github.io/tags
  Api-Key: 1234
 
 200 OK
