@@ -9,5 +9,8 @@ Content-Type: application/json
         "tag_name": "HisTag"
         "tag_sequence": "HHHHHH"
       }
-  ]
+  ],
+  "paging": {
+    "total": 200
+  }
 }
