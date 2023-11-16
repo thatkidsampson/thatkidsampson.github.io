@@ -6,7 +6,7 @@ Content-Type: application/json
 {
   "data": [
       {
-        "tag_name": "HisTag"
+        "tag_name": "HisTag",
         "tag_sequence": "HHHHHH"
       }
   ],
