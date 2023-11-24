@@ -1,5 +1,5 @@
 HTTP/1.1 200 OK
-Content-Type: application/vnd.api+json
+Content-Type: application/json
 {
   "data": [
       {
