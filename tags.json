@@ -1,3 +1,8 @@
+GET [https://thatkidsampson.github.io/tags.json]
+Api-Key: 1234
+
+200 OK
+Content-Type: application/json
 {
   "data": [
       {
