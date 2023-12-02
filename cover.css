@@ -27,9 +27,8 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: black;
+  background-color: #333;
   background-size: contain;
-  background-image: url(./images/trek2_background2.jpg);
   background-size:     cover;                      /* <------ */
   background-repeat:   no-repeat;
   background-position: center center;              /* optional, center the image */
