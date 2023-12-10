@@ -7,6 +7,10 @@
     <meta name="author" content="">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/photoswipe.css">
+    <link rel="stylesheet" href="css/default-skin.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://kit.fontawesome.com/1a45e8f5b7.js" crossorigin="anonymous"></script>
 
     <title>Peter Canning</title>
 
@@ -22,251 +26,340 @@
   <body class="text-center">
 
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+
       <header class="masthead">
         <div class="inner">
           <h3 class="masthead-brand">Peter Canning</h3>
-          <nav class="nav nav-masthead justify-content-center">
+          <nav class="nav nav-masthead">
             <a class="nav-link" href="index.html">Home</a>
             <a class="nav-link active" href="images.html">Images</a>
           </nav>
         </div>
       </header>
 
-      <div class="album py-2">
-      <div class="container">
-        <!-- Gallery cards -->
-        <div class="row col-md-12 p-3">
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                      <a class="lightbox" href="#1">
-                            <img class="card-img-top img-fluid" src="./images/gallery/KRAS.jpg" alt="Card image cap">
-                      </a>
-                    <div class="card-footer">
-                      <p class="card-text text-muted small">KRAS protein with an inhibitor.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                      <a class="lightbox" href="#2">
-                            <img class="card-img-top img-fluid" src="./images/gallery/FBTS.jpg" alt="Card image cap">
-                      </a>
-                    <div class="card-footer">
-                      <p class="card-text text-muted small">Illustration for our FBTS project.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                      <a class="lightbox" href="#3">
-                            <img class="card-img-top img-fluid" src="./images/gallery/NDM1.jpg" alt="Card image cap">
-                      </a>
-                    <div class="card-footer">
-                      <p class="card-text text-muted small">NDM1 protein with penicillin.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                      <a class="lightbox" href="#4">
-                            <img class="card-img-top img-fluid" src="./images/gallery/BmrR.jpg" alt="Card image cap">
-                      </a>
-                    <div class="card-footer">
-                      <p class="card-text text-muted small">BmrR protein with rhodamine.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                      <a class="lightbox" href="#5">
-                            <img class="card-img-top img-fluid" src="./images/gallery/antibody.png" alt="Card image cap">
-                      </a>
-                    <div class="card-footer">
-                      <p class="card-text text-muted small">Antibodies in research.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                      <a class="lightbox" href="#6">
-                            <img class="card-img-top img-fluid" src="./images/gallery/lingo1.png" alt="Card image cap">
-                      </a>
-                    <div class="card-footer">
-                      <p class="card-text text-muted small">An antibody-targetted therapy.</p>
-                    </div>
-                  </div>
-                </div>
+      <!-- GALLERY DESCRIPTIONS -->
 
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                      <a class="lightbox" href="#7">
-                            <img class="card-img-top img-fluid" src="./images/gallery/Trek2.jpg" alt="Card image cap">
-                      </a>
-                    <div class="card-footer">
-                      <p class="card-text text-muted small">A 2-pore potassium channel.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                      <a class="lightbox" href="#8">
-                            <img class="card-img-top img-fluid" src="./images/gallery/nano.png" alt="Card image cap">
-                      </a>
-                    <div class="card-footer">
-                      <p class="card-text text-muted small">An experimental cancer treatment.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                      <a class="lightbox" href="#9">
-                            <img class="card-img-top img-fluid" src="./images/gallery/cul3.jpg" alt="Card image cap">
-                      </a>
-                    <div class="card-footer">
-                      <p class="card-text text-muted small">Assembly of a Cullin3 E3 ligase.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                      <a class="lightbox" href="#10">
-                            <img class="card-img-top img-fluid" src="./images/gallery/RIPK2.jpg" alt="Card image cap">
-                      </a>
-                    <div class="card-footer">
-                      <p class="card-text text-muted small">RIPK2 protein with inhibitors.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                      <a class="lightbox" href="#11">
-                            <img class="card-img-top img-fluid" src="./images/gallery/cascade.jpg" alt="Card image cap">
-                      </a>
-                    <div class="card-footer">
-                      <p class="card-text text-muted small">The CASCADE complex.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                      <a class="lightbox" href="#12">
-                            <img class="card-img-top img-fluid" src="./images/gallery/exonuclease.jpg" alt="Card image cap">
-                      </a>
-                    <div class="card-footer">
-                      <p class="card-text text-muted small">An exonuclease enzyme with DNA.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                      <a class="lightbox" href="#13">
-                            <img class="card-img-top img-fluid" src="./images/gallery/ripk2.png" alt="Card image cap">
-                      </a>
-                    <div class="card-footer">
-                      <p class="card-text text-muted small">RIPK2 inhibitors and inflammation.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                      <a class="lightbox" href="#14">
-                            <img class="card-img-top img-fluid" src="./images/gallery/cdkl.jpg" alt="Card image cap">
-                      </a>
-                    <div class="card-footer">
-                      <p class="card-text text-muted small">A CDKL5 gene error.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card mb-4 box-shadow">
-                      <a class="lightbox" href="#15">
-                            <img class="card-img-top img-fluid" src="./images/gallery/crispr.png" alt="Card image cap">
-                      </a>
-                    <div class="card-footer">
-                      <p class="card-text text-muted small">The CRISPR/CAS9 system.</p>
-                    </div>
-                  </div>
-                </div>
-          <!-- End of gallery cards -->
-          <!-- Lightbox images -->
-                  <div class="lightbox-target col-md-12" id="1">
-                      <img src="./images/gallery/KRAS.jpg"/>
-                      <a class="lightbox-close" href="#"></a>
-                  </div>
-                  <div class="lightbox-target col-md-12" id="2">
-                      <img src="./images/gallery/FBTS.jpg"/>
-                      <a class="lightbox-close" href="#"></a>
-                  </div>
-                  <div class="lightbox-target col-md-12" id="3">
-                      <img src="./images/gallery/NDM1.jpg"/>
-                      <a class="lightbox-close" href="#"></a>
-                  </div>
-                  <div class="lightbox-target col-md-12" id="4">
-                      <img src="./images/gallery/BmrR.jpg"/>
-                      <a class="lightbox-close" href="#"></a>
-                  </div>
-                  <div class="lightbox-target col-md-12" id="5">
-                      <img src="./images/gallery/antibody.png"/>
-                      <a class="lightbox-close" href="#"></a>
-                  </div>
-                  <div class="lightbox-target col-md-12" id="6">
-                      <img src="./images/gallery/lingo1.png"/>
-                      <a class="lightbox-close" href="#"></a>
-                  </div>
-                  <div class="lightbox-target col-md-12" id="7">
-                      <img src="./images/gallery/Trek2.jpg"/>
-                      <a class="lightbox-close" href="#"></a>
-                  </div>
-                  <div class="lightbox-target col-md-12" id="8">
-                      <img src="./images/gallery/nano.png"/>
-                      <a class="lightbox-close" href="#"></a>
-                  </div>
-                  <div class="lightbox-target col-md-12" id="9">
-                      <img src="./images/gallery/cul3.jpg"/>
-                      <a class="lightbox-close" href="#"></a>
-                  </div>
-                  <div class="lightbox-target col-md-12" id="10">
-                      <img src="./images/gallery/RIPK2.jpg"/>
-                      <a class="lightbox-close" href="#"></a>
-                  </div>
-                  <div class="lightbox-target col-md-12" id="11">
-                      <img src="./images/gallery/cascade.jpg"/>
-                      <a class="lightbox-close" href="#"></a>
-                  </div>
-                  <div class="lightbox-target col-md-12" id="12">
-                      <img src="./images/gallery/exonuclease.jpg"/>
-                      <a class="lightbox-close" href="#"></a>
-                  </div>
-                  <div class="lightbox-target col-md-12" id="13">
-                      <img src="./images/gallery/ripk2.png"/>
-                      <a class="lightbox-close" href="#"></a>
-                  </div>
-                  <div class="lightbox-target col-md-12" id="14">
-                      <img src="./images/gallery/cdkl.jpg"/>
-                      <a class="lightbox-close" href="#"></a>
-                  </div>
-                  <div class="lightbox-target col-md-12" id="15">
-                      <img src="./images/gallery/crispr.png"/>
-                      <a class="lightbox-close" href="#"></a>
-                  </div>
-          <!-- End of lightbox images -->
-        </div>
-
-
-
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col gallery-section">
+  
+        <p class="lead text-white">Images - 
+        <a href="https://www.instagram.com/that_kidsampson/"><i class="fab fa-instagram" style="font-size:20px"></i> Instagram</a>
+        </p>
       </div>
     </div>
+    
+      <div class="row">
+    <div class="col gallery">
+
+      <a href="images/photos/PD1_keytruda.png"
+        class="gallery-photo"
+        data-index="0"
+        data-type="image"
+        data-gallery="0"
+        data-width="1920"
+        data-height="1080"
+        data-date=""
+        style="--w: 284; --h: 160">
+        <img src="images/thumbnails/PD1_keytruda.jpg" class="thumbnail rounded" alt=""/></a>
 
 
-      <footer class="mastfoot mt-auto">
-        <div class="inner">
-          <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-        </div>
-      </footer>
+        <a href="images/photos/virus_Abs.png"
+        class="gallery-photo"
+        data-index="1"
+        data-type="image"
+        data-gallery="0"
+        data-width="1920"
+        data-height="1080"
+        data-date=""
+        style="--w: 284; --h: 160">
+        <img src="images/thumbnails/virus_Abs.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/ALDH_2_2.png"
+           class="gallery-photo"
+           data-index="2"
+           data-type="image"
+           data-gallery="0"
+           data-width="1395"
+           data-height="1095"
+           data-date=""
+           style="--w: 204; --h: 160">
+           <img src="images/thumbnails/ALDH_2_2.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/B2 adrenergic receptor2.png"
+           class="gallery-photo"
+           data-index="3"
+           data-type="image"
+           data-gallery="0"
+           data-width="1920"
+           data-height="1080"
+           data-date=""
+           style="--w: 284; --h: 160">
+           <img src="images/thumbnails/B2 adrenergic receptor2.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/BRD4.jpg"
+           class="gallery-photo"
+           data-index="4"
+           data-type="image"
+           data-gallery="0"
+           data-width="7999"
+           data-height="4499"
+           data-date=""
+           style="--w: 284; --h: 160">
+           <img src="images/thumbnails/BRD4.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/BmrR.jpg"
+           class="gallery-photo"
+           data-index="5"
+           data-type="image"
+           data-gallery="0"
+           data-width="1920"
+           data-height="1080"
+           data-date=""
+           style="--w: 284; --h: 160">
+           <img src="images/thumbnails/BmrR.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/CDKLs_6.png"
+           class="gallery-photo"
+           data-index="6"
+           data-type="image"
+           data-gallery="0"
+           data-width="1080"
+           data-height="1240"
+           data-date=""
+           style="--w: 140; --h: 160">
+           <img src="images/thumbnails/CDKLs_6.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/FBTS.jpg"
+           class="gallery-photo"
+           data-index="7"
+           data-type="image"
+           data-gallery="0"
+           data-width="1920"
+           data-height="1080"
+           data-date=""
+           style="--w: 284; --h: 160">
+           <img src="images/thumbnails/FBTS.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/KRAS.jpg"
+           class="gallery-photo"
+           data-index="8"
+           data-type="image"
+           data-gallery="0"
+           data-width="1920"
+           data-height="1080"
+           data-date=""
+           style="--w: 284; --h: 160">
+           <img src="images/thumbnails/KRAS.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/NDM1.jpg"
+           class="gallery-photo"
+           data-index="9"
+           data-type="image"
+           data-gallery="0"
+           data-width="1920"
+           data-height="1080"
+           data-date=""
+           style="--w: 284; --h: 160">
+           <img src="images/thumbnails/NDM1.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/RIPK2.jpg"
+           class="gallery-photo"
+           data-index="10"
+           data-type="image"
+           data-gallery="0"
+           data-width="2500"
+           data-height="1875"
+           data-date=""
+           style="--w: 232; --h: 160">
+           <img src="images/thumbnails/RIPK2.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/Trek2.jpg"
+           class="gallery-photo"
+           data-index="11"
+           data-type="image"
+           data-gallery="0"
+           data-width="1920"
+           data-height="1080"
+           data-date=""
+           style="--w: 284; --h: 160">
+           <img src="images/thumbnails/Trek2.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/antibody.png"
+           class="gallery-photo"
+           data-index="12"
+           data-type="image"
+           data-gallery="0"
+           data-width="2554"
+           data-height="1507"
+           data-date=""
+           style="--w: 271; --h: 160">
+           <img src="images/thumbnails/antibody.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/cascade.jpg"
+           class="gallery-photo"
+           data-index="13"
+           data-type="image"
+           data-gallery="0"
+           data-width="2833"
+           data-height="2125"
+           data-date=""
+           style="--w: 214; --h: 160">
+           <img src="images/thumbnails/cascade.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/cdkl.jpg"
+           class="gallery-photo"
+           data-index="14"
+           data-type="image"
+           data-gallery="0"
+           data-width="1800"
+           data-height="1803"
+           data-date=""
+           style="--w: 160; --h: 160">
+           <img src="images/thumbnails/cdkl.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/crispr.png"
+           class="gallery-photo"
+           data-index="15"
+           data-type="image"
+           data-gallery="0"
+           data-width="3858"
+           data-height="4108"
+           data-date=""
+           style="--w: 150; --h: 160">
+           <img src="images/thumbnails/crispr.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/cul3.jpg"
+           class="gallery-photo"
+           data-index="16"
+           data-type="image"
+           data-gallery="0"
+           data-width="2032"
+           data-height="1066"
+           data-date=""
+           style="--w: 305; --h: 160">
+           <img src="images/thumbnails/cul3.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/exonuclease.jpg"
+           class="gallery-photo"
+           data-index="17"
+           data-type="image"
+           data-gallery="0"
+           data-width="6000"
+           data-height="4500"
+           data-date=""
+           style="--w: 214; --h: 160">
+           <img src="images/thumbnails/exonuclease.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/lingo1.png"
+           class="gallery-photo"
+           data-index="18"
+           data-type="image"
+           data-gallery="0"
+           data-width="3730"
+           data-height="2269"
+           data-date=""
+           style="--w: 263; --h: 160">
+           <img src="images/thumbnails/lingo1.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/multi_RS.png"
+           class="gallery-photo"
+           data-index="19"
+           data-type="image"
+           data-gallery="0"
+           data-width="1920"
+           data-height="1080"
+           data-date=""
+           style="--w: 284; --h: 160">
+           <img src="images/thumbnails/multi_RS.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/nano.png"
+           class="gallery-photo"
+           data-index="20"
+           data-type="image"
+           data-gallery="0"
+           data-width="4513"
+           data-height="2532"
+           data-date=""
+           style="--w: 285; --h: 160">
+           <img src="images/thumbnails/nano.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/render-01.png"
+           class="gallery-photo"
+           data-index="21"
+           data-type="image"
+           data-gallery="0"
+           data-width="4249"
+           data-height="6666"
+           data-date=""
+           style="--w: 102; --h: 160">
+           <img src="images/thumbnails/render-01.jpg" class="thumbnail rounded" alt=""/></a>
+      
+        <a href="images/photos/ripk2.png"
+           class="gallery-photo"
+           data-index="22"
+           data-type="image"
+           data-gallery="0"
+           data-width="2810"
+           data-height="1944"
+           data-date=""
+           style="--w: 232; --h: 160">
+           <img src="images/thumbnails/ripk2.jpg" class="thumbnail rounded" alt=""/></a>
+
+      </div>
+  </div>
+  <footer class="mastfoot mt-auto">
+    <div class="inner">
+      <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      <p>Gallery created with <a rel="noreferrer" href="https://www.haltakov.net/simple-photo-gallery">Simple Photo Gallery</a></p>
+    </div>
+  </footer>
+  </div>
+  
+    <!-- END GALLERY DESCRIPTIONS -->
     </div>
 
+    </div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="pswp__bg"></div>
+      <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+        </div>
+  
+        <div class="pswp__ui pswp__ui--hidden">
+          <div class="pswp__top-bar">
+            <div class="pswp__counter"></div>
+            <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+            <button class="pswp__button pswp__button--share" title="Share"></button>
+            <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+            <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+  
+            <div class="pswp__preloader">
+              <div class="pswp__preloader__icn">
+                <div class="pswp__preloader__cut">
+                  <div class="pswp__preloader__donut"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+            <div class="pswp__share-tooltip"></div>
+          </div>
+  
+          <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+          <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+  
+          <div class="pswp__caption">
+            <div class="pswp__caption__center"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -275,5 +368,8 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="../../assets/js/vendor/popper.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="js/photoswipe.min.js"></script>
+   <script src="js/photoswipe-ui-default.min.js"></script>
+   <script src="js/main.js"></script>
   </body>
 </html>
