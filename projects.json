@@ -1,7 +1,12 @@
 Api-Key: 1234
 200 OK
 Content-Type: application/json
-[
+{
+        "data": [
         {"id": "0",
         "description": "Project-0"},
-]
+],
+        "paging": {
+                "total": 100
+        }
+}
