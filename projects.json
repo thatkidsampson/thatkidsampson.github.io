@@ -2,7 +2,7 @@ GET https://thatkidsampson.github.io/projects
 api-key: 1234
 
 200 OK
-Content-Type application/json
+Content-Type: application/json
 {
     "data":[
         {"projectId": "0",
