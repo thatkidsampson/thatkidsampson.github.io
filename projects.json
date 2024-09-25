@@ -1,5 +1,5 @@
 200 OK
-Content-Type application/json
+Content-Type: application/json
 [
         {"id": "0",
         "description": "Project-0"},
