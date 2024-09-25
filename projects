@@ -1,5 +1,3 @@
-200 OK
-Content-Type: application/json
 {
     "data":[
         {"projectId": "0",
