@@ -1,13 +1,16 @@
 {
   "data": [
     {
-      "type": "Cat"
+      "name": "His",
+      "sequence": "HHHHHH"
     },
     {
-      "type": "Dog"
+      "name": "Pete",
+      "sequence": "PETE"
     },
     {
-      "type": "Mouse"
+      "name": "Can",
+      "sequence": "CAN"
     }
   ]
 }
