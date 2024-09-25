@@ -2,13 +2,12 @@ api-key: 1234
 {
   "data": [
     {
-      "type": "Cat"
+      "type": "His",
+      "sequence": "HHHHHH",
     },
     {
-      "type": "Dog"
-    },
-    {
-      "type": "Mouse"
+      "type": "Dog",
+      "sequence":"TYQSR",
     }
   ]
 }
