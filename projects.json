@@ -1,5 +1,15 @@
+GET https://thatkidsampson.github.io/projects.json
+Api-Key: 1234
+
 200 OK
 Content-Type: application/json
 
-{"projectId": "0",
-"description": "Project-0"},
+{
+    "data":[
+        {"projectId": "0",
+        "description": "Project-0"},
+    ],
+    "paging": {
+        "total": 100
+    }
+}
