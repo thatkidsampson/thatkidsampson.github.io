@@ -1,6 +1,5 @@
 200 OK
 Content-Type: application/json
-{
-    {"projectId": "0",
-    "description": "Project-0"},
-}
+
+{"projectId": "0",
+"description": "Project-0"},
