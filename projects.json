@@ -1,5 +1,5 @@
 GET https://thatkidsampson.github.io/projects
-api-key: 1234
+Api-Key: 1234
 
 200 OK
 Content-Type: application/json
