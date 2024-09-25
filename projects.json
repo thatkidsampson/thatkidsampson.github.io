@@ -1,14 +1,14 @@
-GET https://thatkidsampson.github.io/projects.json
-Api-Key: 1234
-
-200 OK
-Content-Type: application/json
+api-key: 1234
 {
-        "data": [
-        {"id": "0",
-        "description": "Project-0"},
-],
-        "paging": {
-                "total": 100
-        }
+  "data": [
+    {
+      "type": "Cat"
+    },
+    {
+      "type": "Dog"
+    },
+    {
+      "type": "Mouse"
+    }
+  ]
 }
