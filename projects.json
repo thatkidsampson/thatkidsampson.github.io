@@ -1,4 +1,4 @@
-GET https://thatkidsampson.github.io/projects
+GET https://thatkidsampson.github.io/projects.json
 Api-Key: 1234
 
 200 OK
