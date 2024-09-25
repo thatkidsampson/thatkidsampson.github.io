@@ -1,9 +1,13 @@
 {
-    "data":[
-        {"projectId": "0",
-        "description": "Project-0},
-    ],
-    "paging": {
-        "total": 100
+  "data": [
+    {
+      "type": "Cat"
+    },
+    {
+      "type": "Dog"
+    },
+    {
+      "type": "Mouse"
     }
+  ]
 }
