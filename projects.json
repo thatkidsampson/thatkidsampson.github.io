@@ -6,7 +6,7 @@ Content-Type: application/json
 {
     "data":[
         {"projectId": "0",
-        "description": "Project-0},
+        "description": "Project-0"},
     ],
     "paging": {
         "total": 100
