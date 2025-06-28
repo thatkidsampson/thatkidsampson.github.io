@@ -1,0 +1,14 @@
+api-key: 1234
+{
+  "data": [
+    {
+      "type": "Cat"
+    },
+    {
+      "type": "Dog"
+    },
+    {
+      "type": "Mouse"
+    }
+  ]
+}
