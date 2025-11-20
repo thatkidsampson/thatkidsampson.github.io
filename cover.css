@@ -28,10 +28,10 @@ html,
 body {
   height: 100%;
   background-color: #333;
-  background-size: contain;
-  background-size:     cover;                      /* <------ */
+  background-size:     150%;                      /* <------ */
   background-repeat:   no-repeat;
   background-position: center center;              /* optional, center the image */
+  background-position-x: left;
 }
 
 body {
@@ -98,7 +98,7 @@ body {
  * Cover
  */
 .cover {
-  padding: 0 1.5rem;
+  padding-right: 20%;
 }
 .cover .btn-lg {
   padding: .75rem 1.25rem;
@@ -278,6 +278,14 @@ top: 0px;
     width: auto;
     object-fit: cover;
   }
+  html,
+body {
+  background-size:     auto;                      /* <------ */
+  background-position-x: center;
+}
+.cover {
+  padding-right: 55%;
+}
 }
 
 @media screen and (max-width: 768px){
@@ -291,12 +299,16 @@ top: 0px;
 
 /*mobiles*/
 
-@media screen and (max-width: 480px){
+@media screen and (max-width: 600px){
   .lightbox img {
     height: 200px;
     width: auto;
     object-fit: cover;
   }
+  body {
+  background-size:     cover;
+  background-position-x: center;
+}
 }
 
 @media screen and (max-width: 320px){
