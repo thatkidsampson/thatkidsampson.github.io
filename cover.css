@@ -302,6 +302,9 @@ body {
     width: auto;
     object-fit: cover;
   }
+  .nav-masthead {
+    float: left;
+  }
 }
 
 
@@ -318,9 +321,6 @@ body {
   background-position-x: center;
   }
   .masthead-brand {
-    float: left;
-  }
-  .nav-masthead {
     float: left;
   }
   p {
