@@ -50,6 +50,14 @@ body {
   max-width: 42em;
 }
 
+p {
+    font-size: 120%;
+  }
+
+a {
+  font-size: 120%;
+}
+
 
 /*
  * Header
@@ -280,7 +288,7 @@ top: 0px;
   }
   html,
 body {
-  background-size:     auto;                      /* <------ */
+  background-size:     cover;                      /* <------ */
   background-position-x: center;
 }
 .cover {
@@ -299,15 +307,24 @@ body {
 
 /*mobiles*/
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 480px){
   .lightbox img {
     height: 200px;
     width: auto;
     object-fit: cover;
   }
   body {
-  background-size:     cover;
+  background-size:     400%;
   background-position-x: center;
+  }
+  .masthead-brand {
+    float: left;
+  }
+  .nav-masthead {
+    float: left;
+  }
+  p {
+    font-size: 90%;
 }
 }
 
