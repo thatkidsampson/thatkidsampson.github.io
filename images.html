@@ -1,375 +1,533 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="css/photoswipe.css">
-    <link rel="stylesheet" href="css/default-skin.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="https://kit.fontawesome.com/1a45e8f5b7.js" crossorigin="anonymous"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Peter Canning — Images</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <title>Peter Canning</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
+    :root {
+      --bg: #ffffff;
+      --surface: #f7f7f7;
+      --border: #e2e2e2;
+      --text: #111111;
+      --text-muted: #888888;
+      --accent: #2563eb;
+      --tag-bg: rgba(37,99,235,0.07);
+      --tag-border: rgba(37,99,235,0.2);
+    }
 
-    <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    html { scroll-behavior: smooth; }
 
-    <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
-  </head>
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+    }
 
-  <body class="text-center">
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 60px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
 
-    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-      <header class="masthead mb-auto">
-        <div class="inner">
-          <h3 class="masthead-brand text-white">Peter Canning</h3>
-          <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link text-white" href="index.html">Home</a>
-            <a class="nav-link text-white active" href="images.html">Images</a>
-            <a class="nav-link text-white" href="code.html">Example code</a>
-          </nav>
-        </div>
-      </header>
+    .nav-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 300;
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      text-decoration: none;
+    }
 
-      <!-- GALLERY DESCRIPTIONS -->
+    .nav-links { display: flex; gap: 2rem; }
+    @media (max-width: 640px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.75rem 1rem;
+        height: auto;
+        gap: 0.5rem;
+      }
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col gallery-section">
-  
-        <p class="lead text-white">Images (
-        <a href="https://www.instagram.com/that_kidsampson/" class="text-white"><i class="fab fa-instagram" style="font-size:20px"></i> Instagram</a>)
-        </p>
-      </div>
+      .nav-name {
+        margin-bottom: 0.25rem;
+      }
+
+      .nav-links {
+        width: 100%;
+        display: flex;
+        gap: 0.5rem;
+        padding-left: 0;
+      }
+
+      .nav-links a {
+        padding: 0.35rem 0;
+        font-size: 0.85rem;
+      }
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+    /* ── HERO HEADER ── */
+    .page-header {
+      padding: 120px 2.5rem 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 300;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.6rem;
+    }
+
+    .page-header .sub {
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .page-header .sub a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .page-header .sub a:hover { opacity: 0.7; }
+
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-radius: 2px;
+    }
+    .filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .filter-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    /* ── GALLERY GRID ── */
+    .gallery {
+      padding: 2.5rem;
+      columns: 3;
+      column-gap: 1.2rem;
+    }
+
+    @media (max-width: 1100px) { .gallery { columns: 2; } }
+    @media (max-width: 640px)  { .gallery { columns: 1; padding: 1.5rem; } }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeUp 0.55s ease forwards;
+    }
+
+    .gallery-item.hidden {
+      display: none;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .card-img-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.04);
+    }
+
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.2rem;
+    }
+
+    .card:hover .card-overlay { opacity: 1; }
+
+    .card-overlay-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: #fff;
+      letter-spacing: 0.02em;
+    }
+
+    .card-meta {
+      padding: 0.85rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      flex: 1;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-tag {
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border: 1px solid var(--tag-border);
+      background: var(--tag-bg);
+      color: var(--accent);
+      border-radius: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0,0,0,0.94);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .lightbox.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lightbox-inner img {
+      max-width: 90vw;
+      max-height: 80vh;
+      object-fit: contain;
+      border: 1px solid var(--border);
+    }
+
+    .lightbox-caption {
+      margin-top: 1rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -2.5rem;
+      right: 0;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .lightbox-close:hover { color: var(--accent); }
+
+    .lb-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.2s, border-color 0.2s;
+      border-radius: 2px;
+    }
+    .lb-nav:hover { background: rgba(200,169,126,0.15); border-color: var(--accent); }
+    .lb-prev { right: calc(100% + 1.5rem); }
+    .lb-next { left: calc(100% + 1.5rem); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    footer span {
+      color: var(--text-muted);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+    }
+
+    footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-name">Peter Canning</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="images.html" class="active">Images</a>
+      <a href="code.html">Code</a>
+      <a href="https://www.instagram.com/that_kidsampson/" target="_blank">Instagram ↗</a>
     </div>
-    
-      <div class="row">
-    <div class="col gallery">
+  </nav>
 
-      <a href="images/photos/PD1_keytruda.png"
-        class="gallery-photo"
-        data-index="0"
-        data-type="image"
-        data-gallery="0"
-        data-width="1920"
-        data-height="1080"
-        data-date=""
-        style="--w: 284; --h: 160">
-        <img src="images/thumbnails/PD1_keytruda.jpg" class="thumbnail rounded" alt=""/></a>
+  <header class="page-header">
+    <h1>Images</h1>
+    <p class="sub">Scientific visualisation &amp; molecular illustration &nbsp;·&nbsp; <a href="https://www.instagram.com/that_kidsampson/" target="_blank">Instagram ↗</a></p>
+  </header>
 
-
-        <a href="images/photos/virus_Abs.png"
-        class="gallery-photo"
-        data-index="1"
-        data-type="image"
-        data-gallery="0"
-        data-width="1920"
-        data-height="1080"
-        data-date=""
-        style="--w: 284; --h: 160">
-        <img src="images/thumbnails/virus_Abs.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/ALDH_2_2.png"
-           class="gallery-photo"
-           data-index="2"
-           data-type="image"
-           data-gallery="0"
-           data-width="1395"
-           data-height="1095"
-           data-date=""
-           style="--w: 204; --h: 160">
-           <img src="images/thumbnails/ALDH_2_2.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/B2 adrenergic receptor2.png"
-           class="gallery-photo"
-           data-index="3"
-           data-type="image"
-           data-gallery="0"
-           data-width="1920"
-           data-height="1080"
-           data-date=""
-           style="--w: 284; --h: 160">
-           <img src="images/thumbnails/B2 adrenergic receptor2.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/BRD4.jpg"
-           class="gallery-photo"
-           data-index="4"
-           data-type="image"
-           data-gallery="0"
-           data-width="7999"
-           data-height="4499"
-           data-date=""
-           style="--w: 284; --h: 160">
-           <img src="images/thumbnails/BRD4.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/BmrR.jpg"
-           class="gallery-photo"
-           data-index="5"
-           data-type="image"
-           data-gallery="0"
-           data-width="1920"
-           data-height="1080"
-           data-date=""
-           style="--w: 284; --h: 160">
-           <img src="images/thumbnails/BmrR.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/CDKLs_6.png"
-           class="gallery-photo"
-           data-index="6"
-           data-type="image"
-           data-gallery="0"
-           data-width="1080"
-           data-height="1240"
-           data-date=""
-           style="--w: 140; --h: 160">
-           <img src="images/thumbnails/CDKLs_6.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/FBTS.jpg"
-           class="gallery-photo"
-           data-index="7"
-           data-type="image"
-           data-gallery="0"
-           data-width="1920"
-           data-height="1080"
-           data-date=""
-           style="--w: 284; --h: 160">
-           <img src="images/thumbnails/FBTS.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/KRAS.jpg"
-           class="gallery-photo"
-           data-index="8"
-           data-type="image"
-           data-gallery="0"
-           data-width="1920"
-           data-height="1080"
-           data-date=""
-           style="--w: 284; --h: 160">
-           <img src="images/thumbnails/KRAS.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/NDM1.jpg"
-           class="gallery-photo"
-           data-index="9"
-           data-type="image"
-           data-gallery="0"
-           data-width="1920"
-           data-height="1080"
-           data-date=""
-           style="--w: 284; --h: 160">
-           <img src="images/thumbnails/NDM1.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/RIPK2.jpg"
-           class="gallery-photo"
-           data-index="10"
-           data-type="image"
-           data-gallery="0"
-           data-width="2500"
-           data-height="1875"
-           data-date=""
-           style="--w: 232; --h: 160">
-           <img src="images/thumbnails/RIPK2_1.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/Trek2.jpg"
-           class="gallery-photo"
-           data-index="11"
-           data-type="image"
-           data-gallery="0"
-           data-width="1920"
-           data-height="1080"
-           data-date=""
-           style="--w: 284; --h: 160">
-           <img src="images/thumbnails/Trek2.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/antibody.png"
-           class="gallery-photo"
-           data-index="12"
-           data-type="image"
-           data-gallery="0"
-           data-width="2554"
-           data-height="1507"
-           data-date=""
-           style="--w: 271; --h: 160">
-           <img src="images/thumbnails/antibody.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/cascade.jpg"
-           class="gallery-photo"
-           data-index="13"
-           data-type="image"
-           data-gallery="0"
-           data-width="2833"
-           data-height="2125"
-           data-date=""
-           style="--w: 214; --h: 160">
-           <img src="images/thumbnails/cascade.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/cdkl.jpg"
-           class="gallery-photo"
-           data-index="14"
-           data-type="image"
-           data-gallery="0"
-           data-width="1800"
-           data-height="1803"
-           data-date=""
-           style="--w: 160; --h: 160">
-           <img src="images/thumbnails/cdkl.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/crispr.png"
-           class="gallery-photo"
-           data-index="15"
-           data-type="image"
-           data-gallery="0"
-           data-width="3858"
-           data-height="4108"
-           data-date=""
-           style="--w: 150; --h: 160">
-           <img src="images/thumbnails/crispr.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/cul3.jpg"
-           class="gallery-photo"
-           data-index="16"
-           data-type="image"
-           data-gallery="0"
-           data-width="2032"
-           data-height="1066"
-           data-date=""
-           style="--w: 305; --h: 160">
-           <img src="images/thumbnails/cul3.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/exonuclease.jpg"
-           class="gallery-photo"
-           data-index="17"
-           data-type="image"
-           data-gallery="0"
-           data-width="6000"
-           data-height="4500"
-           data-date=""
-           style="--w: 214; --h: 160">
-           <img src="images/thumbnails/exonuclease.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/lingo1.png"
-           class="gallery-photo"
-           data-index="18"
-           data-type="image"
-           data-gallery="0"
-           data-width="3730"
-           data-height="2269"
-           data-date=""
-           style="--w: 263; --h: 160">
-           <img src="images/thumbnails/lingo1.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/multi_RS.png"
-           class="gallery-photo"
-           data-index="19"
-           data-type="image"
-           data-gallery="0"
-           data-width="1920"
-           data-height="1080"
-           data-date=""
-           style="--w: 284; --h: 160">
-           <img src="images/thumbnails/multi_RS.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/nano.png"
-           class="gallery-photo"
-           data-index="20"
-           data-type="image"
-           data-gallery="0"
-           data-width="4513"
-           data-height="2532"
-           data-date=""
-           style="--w: 285; --h: 160">
-           <img src="images/thumbnails/nano.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/render-01.png"
-           class="gallery-photo"
-           data-index="21"
-           data-type="image"
-           data-gallery="0"
-           data-width="4249"
-           data-height="6666"
-           data-date=""
-           style="--w: 102; --h: 160">
-           <img src="images/thumbnails/render-01.jpg" class="thumbnail rounded" alt=""/></a>
-      
-        <a href="images/photos/ripk2.png"
-           class="gallery-photo"
-           data-index="22"
-           data-type="image"
-           data-gallery="0"
-           data-width="2810"
-           data-height="1944"
-           data-date=""
-           style="--w: 232; --h: 160">
-           <img src="images/thumbnails/ripk2.jpg" class="thumbnail rounded" alt=""/></a>
-
-      </div>
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="3d">3D</button>
+    <button class="filter-btn" data-filter="figure">Figure</button>
   </div>
-  <footer class="mastfoot mt-auto">
-    <div class="inner">
-      <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-      <p>Gallery created with <a rel="noreferrer" href="https://www.haltakov.net/simple-photo-gallery">Simple Photo Gallery</a></p>
+
+  <main class="gallery" id="gallery">
+    <!-- items injected by JS -->
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lb-close">✕</button>
+      <button class="lb-nav lb-prev" id="lb-prev">←</button>
+      <img id="lb-img" src="" alt="">
+      <button class="lb-nav lb-next" id="lb-next">→</button>
+      <div class="lightbox-caption" id="lb-caption"></div>
     </div>
+  </div>
+
+  <footer>
+    <span>© Peter Canning</span>
+    <span>Built with care · <a href="index.html">petercanning.com</a></span>
   </footer>
-  </div>
-  
-    <!-- END GALLERY DESCRIPTIONS -->
-    </div>
 
-    </div>
+  <script>
+    const BASE = './images/';
 
-    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="pswp__bg"></div>
-      <div class="pswp__scroll-wrap">
-        <div class="pswp__container">
-          <div class="pswp__item"></div>
-          <div class="pswp__item"></div>
-          <div class="pswp__item"></div>
-        </div>
-  
-        <div class="pswp__ui pswp__ui--hidden">
-          <div class="pswp__top-bar">
-            <div class="pswp__counter"></div>
-            <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-            <button class="pswp__button pswp__button--share" title="Share"></button>
-            <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-            <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-  
-            <div class="pswp__preloader">
-              <div class="pswp__preloader__icn">
-                <div class="pswp__preloader__cut">
-                  <div class="pswp__preloader__donut"></div>
-                </div>
+    const images = [
+      { thumb: 'thumbnails/AI_design.jpg',      full: 'photos/AI_design.png',                  title: 'AI drug design',            tags: ['3d'] },
+      { thumb: 'thumbnails/Molecular_glue.jpg',          full: 'photos/Molecular_glue.png',    title: 'Molecular glue',           tags: ['3d'] },
+      { thumb: 'thumbnails/WRN.jpg',           full: 'photos/WRN.png',                         title: 'WRN helicase',                   tags: ['3d'] },
+      { thumb: 'thumbnails/PROTAC.jpg',             full: 'photos/PROTAC.png',                  title: 'PROTAC',  tags: ['3d'] },
+      { thumb: 'thumbnails/Venatoclax.jpg',          full: 'photos/Venatoclax.jpg',             title: 'Venetoclax',                 tags: ['3d'] },
+      { thumb: 'thumbnails/AMR_mechanisms.jpg',     full: 'photos/AMR_mechanisms.jpg',          title: 'AMR_mechanisms',             tags: ['figure'] },
+      { thumb: 'thumbnails/PD1_keytruda.jpg',      full: 'photos/PD1_keytruda.png',            title: 'PD-1 / Keytruda',            tags: ['3d'] },
+      { thumb: 'thumbnails/virus_Abs.jpg',          full: 'photos/virus_Abs.png',               title: 'Virus Antibodies',           tags: ['3d'] },
+      { thumb: 'thumbnails/ALDH_2_2.jpg',           full: 'photos/ALDH_2_2.png',                title: 'ALDH2',                   tags: ['3d'] },
+      { thumb: 'thumbnails/B2 adrenergic receptor2.jpg', full: 'photos/B2 adrenergic receptor2.png', title: 'β2 Adrenergic Receptor',  tags: ['3d'] },
+      { thumb: 'thumbnails/BRD4.jpg',               full: 'photos/BRD4.jpg',                    title: 'BRD4',                       tags: ['3d'] },
+      { thumb: 'thumbnails/BmrR.jpg',               full: 'photos/BmrR.jpg',                    title: 'BmrR',                       tags: ['3d'] },
+      { thumb: 'thumbnails/CDKLs_6.jpg',            full: 'photos/CDKLs_6.png',                 title: 'CDKLs',                      tags: ['3d'] },
+      { thumb: 'thumbnails/FBTS.jpg',               full: 'photos/FBTS.jpg',                    title: 'FBTS',                       tags: ['3d'] },
+      { thumb: 'thumbnails/KRAS.jpg',               full: 'photos/KRAS.jpg',                    title: 'KRAS',                       tags: ['3d'] },
+      { thumb: 'thumbnails/NDM1.jpg',               full: 'photos/NDM1.jpg',                    title: 'NDM-1',                      tags: ['3d'] },
+      { thumb: 'thumbnails/RIPK2_1.jpg',            full: 'photos/RIPK2.jpg',                   title: 'RIPK2',                      tags: ['3d'] },
+      { thumb: 'thumbnails/Trek2.jpg',              full: 'photos/Trek2.jpg',                   title: 'TREK-2',                     tags: ['3d'] },
+      { thumb: 'thumbnails/antibody.jpg',           full: 'photos/antibody.png',                title: 'Antibody',                   tags: ['figure'] },
+      { thumb: 'thumbnails/cascade.jpg',            full: 'photos/cascade.jpg',                 title: 'Signalling Cascade',         tags: ['3D'] },
+      { thumb: 'thumbnails/cdkl.jpg',               full: 'photos/cdkl.jpg',                    title: 'CDKL figure',                tags: ['figure'] },
+      { thumb: 'thumbnails/crispr.jpg',             full: 'photos/crispr.png',                  title: 'CRISPR',                     tags: ['figure'] },
+      { thumb: 'thumbnails/cul3.jpg',               full: 'photos/cul3.jpg',                    title: 'CUL3',                       tags: ['figure'] },
+      { thumb: 'thumbnails/exonuclease.jpg',        full: 'photos/exonuclease.jpg',             title: 'Exonuclease',                tags: ['3d'] },
+      { thumb: 'thumbnails/lingo1.jpg',             full: 'photos/lingo1.png',                  title: 'LINGO-1',                    tags: ['figure'] },
+      { thumb: 'thumbnails/multi_RS.jpg',           full: 'photos/multi_RS.png',                title: 'Multi RS',                   tags: ['3d'] },
+      { thumb: 'thumbnails/nano.jpg',               full: 'photos/nano.png',                    title: 'Nanoscale',                  tags: ['figure'] },
+      { thumb: 'thumbnails/render-01.jpg',          full: 'photos/render-01.png',               title: 'CASCADE complex',            tags: ['3d'] },
+      { thumb: 'thumbnails/ripk2.jpg',              full: 'photos/ripk2.png',                   title: 'RIPK2_figure',                tags: ['figure'] },
+    ];
+
+    const tagLabels = { '3d':'3D', 'figure':'Figure' };
+
+    const gallery = document.getElementById('gallery');
+    let activeFilter = 'all';
+    let currentIndex = 0;
+    let visibleItems = [];
+
+    function buildGallery() {
+      gallery.innerHTML = '';
+      visibleItems = [];
+
+      images.forEach((img, i) => {
+        const matches = activeFilter === 'all' || img.tags.includes(activeFilter);
+
+        const item = document.createElement('div');
+        item.className = 'gallery-item' + (matches ? '' : ' hidden');
+        item.style.animationDelay = (i * 0.04) + 's';
+
+        const primaryTag = img.tags[0];
+        item.innerHTML = `
+          <div class="card">
+            <div class="card-img-wrap">
+              <img src="${img.thumb.startsWith('data:') ? img.thumb : BASE + img.thumb}" alt="${img.title}" loading="lazy">
+              <div class="card-overlay">
+                <span class="card-overlay-text">${img.title}</span>
               </div>
             </div>
-          </div>
-  
-          <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-            <div class="pswp__share-tooltip"></div>
-          </div>
-  
-          <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-          <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
-  
-          <div class="pswp__caption">
-            <div class="pswp__caption__center"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+            <div class="card-meta">
+              <span class="card-title">${img.title}</span>
+              <span class="card-tag">${tagLabels[primaryTag] || primaryTag}</span>
+            </div>
+          </div>`;
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="js/photoswipe.min.js"></script>
-   <script src="js/photoswipe-ui-default.min.js"></script>
-   <script src="js/main.js"></script>
-  </body>
+        item.addEventListener('click', () => openLightbox(i));
+        gallery.appendChild(item);
+
+        if (matches) visibleItems.push(i);
+      });
+    }
+
+    // Filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        buildGallery();
+      });
+    });
+
+    // Lightbox
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbCap = document.getElementById('lb-caption');
+
+    function openLightbox(i) {
+      currentIndex = i;
+      const img = images[i];
+      lbImg.src = img.full.startsWith('data:') ? img.full : BASE + img.full;
+      lbCap.textContent = img.title;
+      lb.classList.add('open');
+    }
+
+    function closeLightbox() { lb.classList.remove('open'); }
+
+    function lightboxNav(dir) {
+      const vis = visibleItems.length ? visibleItems : images.map((_,i)=>i);
+      const pos = vis.indexOf(currentIndex);
+      const next = vis[(pos + dir + vis.length) % vis.length];
+      openLightbox(next);
+    }
+
+    document.getElementById('lb-close').addEventListener('click', closeLightbox);
+    document.getElementById('lb-prev').addEventListener('click', () => lightboxNav(-1));
+    document.getElementById('lb-next').addEventListener('click', () => lightboxNav(1));
+    lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft')  lightboxNav(-1);
+      if (e.key === 'ArrowRight') lightboxNav(1);
+    });
+
+    buildGallery();
+  </script>
+</body>
 </html>

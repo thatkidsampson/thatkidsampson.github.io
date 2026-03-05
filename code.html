@@ -1,66 +1,361 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/1a45e8f5b7.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="images/favicon.ico">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Peter Canning — Code</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Space+Grotesk:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
 
-    <title>Peter Canning</title>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
+    :root {
+      --bg: #ffffff;
+      --surface: #f7f7f7;
+      --border: #e2e2e2;
+      --text: #111111;
+      --text-muted: #888888;
+      --accent: #2563eb;
+    }
 
-    <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    html { scroll-behavior: smooth; }
 
-    <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
-  </head>
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      min-height: 100vh;
+    }
 
-  <body class="text-left", style="border-radius: 5px;background-image: url('images/photos/NDM1.jpg')">
-    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-      <header class="masthead mb-auto">
-        <div class="inner">
-          <h3 class="masthead-brand">Peter Canning</h3>
-          <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link" href="index.html">Home</a>
-            <a class="nav-link" href="images.html">Images</a>
-            <a class="nav-link active" href="notebooks.html">Example code</a>
-          </nav>
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 60px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+ .nav-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 300;
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 2rem; }
+    @media (max-width: 640px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.75rem 1rem;
+        height: auto;
+        gap: 0.5rem;
+      }
+
+      .nav-name {
+        margin-bottom: 0.25rem;
+      }
+
+      .nav-links {
+        width: 100%;
+        display: flex;
+        gap: 0.5rem;
+        padding-left: 0;
+      }
+
+      .nav-links a {
+        padding: 0.35rem 0;
+        font-size: 0.85rem;
+      }
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+    footer span { color: var(--text-muted); font-size: 0.7rem; letter-spacing: 0.08em; }
+    footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+
+
+.page-header {
+      padding: 120px 2.5rem 48px;
+      border-bottom: 1px solid var(--border);
+      background-color: rgba(255,255,255,0.5);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+    }
+
+    .page-header-bg {
+      position: absolute;
+      top: -10%; right: -5%;
+      width: 45%;
+      height: 130%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center right;
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    .page-header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 300;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+      position: relative;
+    }
+
+    .page-header .sub {
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .content {
+      padding: 3rem 2.5rem;
+      max-width: 860px;
+    }
+
+    .section-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.4rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-block {
+      margin-bottom: 3.5rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 1rem;
+    }
+
+    .code-card {
+      background: var(--bg);
+      padding: 1.8rem;
+      transition: background 0.2s;
+    }
+    .code-card:hover { background: var(--surface); }
+
+    .code-card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .code-card-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+      font-weight: 300;
+    }
+
+    .code-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(37,99,235,0.3);
+      padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
+    .code-card-link:hover { border-color: var(--accent); }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.18rem 0.55rem;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      border-radius: 2px;
+      margin-bottom: 1rem;
+    }
+
+    .app-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .app-card-body { flex: 1; min-width: 220px; }
+
+    .app-card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+    }
+
+    .app-card-desc {
+      font-size: 0.88rem;
+      color: #444;
+      line-height: 1.65;
+      font-weight: 300;
+      margin-bottom: 1.2rem;
+    }
+
+    .app-card-stack {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .app-card-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: all 0.2s;
+      white-space: nowrap;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn:hover { border-color: var(--accent); color: var(--accent); }
+    .btn.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .btn.primary:hover { opacity: 0.85; color: #fff; }
+
+    @media (max-width: 640px) {
+      .content { padding: 2rem 1.5rem; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-name">Peter Canning</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="images.html">Images</a>
+      <a href="code.html" class="active">Code</a>
+      <a href="https://www.instagram.com/that_kidsampson/" target="_blank">Instagram ↗</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="page-header-bg"></div>
+    <h1>Code</h1>
+    <p class="sub">Notebooks, tools &amp; apps</p>
+  </header>
+
+  <main class="content">
+
+    <div class="section-block">
+      <p class="section-label">Example Notebooks</p>
+      <div class="card-grid">
+        <div class="code-card">
+          <div class="tag">Bioinformatics</div>
+          <div class="code-card-title">Bioinformatics &amp; Automation</div>
+          <div class="code-card-desc">Workflows for sequence analysis, data wrangling and laboratory automation pipelines.</div>
+          <a href="https://colab.research.google.com/drive/1Y-BLANohfS6es1tOWBs78XMXi6LKYc97?usp=sharing" class="code-card-link" target="_blank">Open in Colab ↗</a>
         </div>
-      </header>
-
-      <main role="main" class="inner cover" >
-        <h4>Example notebooks:</br></h4>
-        <a href="https://colab.research.google.com/drive/1Y-BLANohfS6es1tOWBs78XMXi6LKYc97?usp=sharing"><i class="fa-solid fa-robot"></i> Bioinformatics & automation.</a></br>
-        <a href="https://colab.research.google.com/drive/1uBoHxXp_cPIUXHBndxUb6zfmhbGUvth_?usp=sharing"><i class="fa-solid fa-flask"></i> Protein design.</a></br>
-        </br>
-        <p>Some short notebooks demonstrating some protein design and informatics workflows. Also in <a href="https://github.com/thatkidsampson/thatkidsampson", style="font-size: 100%"><i class="fa-brands fa-github"></i> GitHub</a></p>
-
-      </br>
-        <h4>Example scientific app:</br></h4>
-        <a href=""><i class="fa-solid fa-display"></i> App </a></br>
-        <a href=""><i class="fa-brands fa-github"></i> GitHub Repo</a></br>
-      </br>
-        <p> This Streamlit app demonstrates a protein science workflow, containerised with Docker and deployed to Google Cloud Run with CI/CD in GitHub Actions.</p>
-      </main>
-
-      <footer class="mastfoot mt-auto">
-        <div class="inner">
-          <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+        <div class="code-card">
+          <div class="tag">Protein Design</div>
+          <div class="code-card-title">Protein Design</div>
+          <div class="code-card-desc">Demonstrating protein design and computational structural biology workflows using modern ML tools.</div>
+          <a href="https://colab.research.google.com/drive/1uBoHxXp_cPIUXHBndxUb6zfmhbGUvth_?usp=sharing" class="code-card-link" target="_blank">Open in Colab ↗</a>
         </div>
-      </footer>
+      </div>
+      <p style="font-size:0.78rem; color:var(--text-muted);">Short notebooks demonstrating protein design and informatics workflows. Also on <a href="https://github.com/thatkidsampson/thatkidsampson" style="color:var(--accent); text-decoration:none;" target="_blank">GitHub ↗</a></p>
     </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-  </body>
+    <div class="section-block">
+      <p class="section-label">Example Scientific App</p>
+      <div class="app-card">
+        <div class="app-card-body">
+          <div class="app-card-title">Protein Science Workflow App</div>
+          <div class="app-card-desc">A Streamlit app demonstrating a protein science workflow, containerised with Docker and deployed to Google Cloud Run with CI/CD via GitHub Actions.</div>
+          <div class="app-card-stack">
+            <span class="tag">Streamlit</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Google Cloud Run</span>
+            <span class="tag">GitHub Actions</span>
+          </div>
+        </div>
+        <div class="app-card-links">
+          <a href="https://streamlitdemo-vk4xqig5sq-nw.a.run.app" class="btn primary">Launch App ↗</a>
+          <a href="https://github.com/thatkidsampson" class="btn" target="_blank">GitHub Repo ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>© Peter Canning</span>
+    <span>Built with care · <a href="index.html">petercanning.com</a></span>
+  </footer>
+
+</body>
 </html>

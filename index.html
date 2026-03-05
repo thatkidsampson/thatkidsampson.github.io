@@ -1,42 +1,175 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/1a45e8f5b7.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="images/favicon.ico">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Peter Canning — Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://kit.fontawesome.com/1a45e8f5b7.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <title>Peter Canning</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
+    :root {
+      --bg: #ffffff;
+      --surface: #f7f7f7;
+      --border: #e2e2e2;
+      --text: #111111;
+      --text-muted: #888888;
+      --accent: #2563eb;
+      --tag-bg: rgba(37,99,235,0.07);
+      --tag-border: rgba(37,99,235,0.2);
+    }
 
-    <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    html { scroll-behavior: smooth; }
 
-    <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
-  </head>
+    body {
+      background: var(--bg);
+      background-position: left;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      background-image: url('images/photos/AI_structure.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: left;
+    }
 
-  <body class="text-left", style="border-radius: 5px;background-image: url('images/photos/NDM1.jpg')">
-    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-      <header class="masthead mb-auto">
-        <div class="inner">
-          <h3 class="masthead-brand">Peter Canning</h3>
-          <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="index.html">Home</a>
-            <a class="nav-link" href="images.html">Images</a>
-            <a class="nav-link" href="code.html">Example code</a>
-          </nav>
-        </div>
-      </header>
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 60px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
 
-      <main role="main" class="inner cover" >
-        <h3 class="cover-heading">Hello!</h3>
-        <p>I'm a scientist specialising in drug discovery, protein science, biophysics, structural biology, automation and software development.</br>
-        </br>
+    .nav-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 300;
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 2rem; }
+    
+    @media (max-width: 640px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.75rem 1rem;
+        height: auto;
+        gap: 0.5rem;
+      }
+
+      .nav-name {
+        margin-bottom: 0.25rem;
+      }
+
+      .nav-links {
+        width: 100%;
+        display: flex;
+        gap: 0.5rem;
+        padding-left: 0;
+      }
+
+      .nav-links a {
+        padding: 0.35rem 0;
+        font-size: 0.85rem;
+      }
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+    /* ── HERO HEADER ── */
+    .page-header {
+      padding: 120px 2.5rem 48px;
+      border-bottom: 1px solid var(--border);
+      background-color: rgba(255,255,255,0.5);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+    }
+
+    .page-header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 300;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.6rem;
+    }
+
+    .page-header .sub {
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .page-header .sub a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .page-header .sub a:hover { opacity: 0.7; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    footer span {
+      color: var(--text-muted);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+    }
+
+    footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-name">Peter Canning</a>
+    <div class="nav-links">
+      <a href="index.html"  class="active">Home</a>
+      <a href="images.html">Images</a>
+      <a href="code.html">Code</a>
+      <a href="https://www.instagram.com/that_kidsampson/" target="_blank">Instagram ↗</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <h1>Hello!</h1>
+    <p class="sub">I'm a scientist specialising in drug discovery, protein science, biophysics, structural biology, automation and software development.</a></p>
+    <p class="sub"></br>
         I also make graphics and figures, mostly featuring protein structures. 
         </br>
         </br>
@@ -44,22 +177,8 @@
         <a href="http://orcid.org/0000-0001-9678-4169"><i class="fab fa-orcid"></i> ORCiD</a>
         <a href="https://www.linkedin.com/in/peter-canning-884b652a/"><i class="fab fa-linkedin"></i> LinkedIn</a>
         <a href="https://github.com/thatkidsampson"><i class="fa-brands fa-github"></i> GitHub</a>
-        </p>
-      </main>
+    </p>
+  </header>
 
-      <footer class="mastfoot mt-auto">
-        <div class="inner">
-          <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-        </div>
-      </footer>
-    </div>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-  </body>
+</body>
 </html>
