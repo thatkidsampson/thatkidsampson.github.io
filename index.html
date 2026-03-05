@@ -133,7 +133,7 @@
     .page-header .sub a:hover { opacity: 0.7; }
 
     /* ── FOOTER ── */
-    footer {
+ footer {
       border-top: 1px solid var(--border);
       padding: 2rem 2.5rem;
       display: flex;
@@ -142,14 +142,10 @@
       flex-wrap: wrap;
       gap: 0.5rem;
       margin-top: 2rem;
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
     }
-
-    footer span {
-      color: var(--text-muted);
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-    }
-
+    footer span { color: var(--text-muted); font-size: 0.7rem; letter-spacing: 0.08em; }
     footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--accent); }
   </style>
@@ -179,6 +175,11 @@
         <a href="https://github.com/thatkidsampson"><i class="fa-brands fa-github"></i> GitHub</a>
     </p>
   </header>
+
+  <footer>
+    <span>© Peter Canning</span>
+    <span><a href="index.html">thatkidsampson.github.io</a></span>
+  </footer>
 
 </body>
 </html>
